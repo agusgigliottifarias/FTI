@@ -1,0 +1,19 @@
+{
+  "name": "AFD con Estados Inalcanzables",
+  "type": "DFA",
+  "alphabet": ["a", "b"],
+  "states": [
+    { "id": "q0", "label": "q0", "isStart": true, "isAccept": false },
+    { "id": "q1", "label": "q1", "isStart": false, "isAccept": true },
+    { "id": "q_inalcanzable1", "label": "X1", "isStart": false, "isAccept": false },
+    { "id": "q_inalcanzable2", "label": "X2", "isStart": false, "isAccept": true }
+  ],
+  "transitions": [
+    { "id": "t1", "from": "q0", "to": "q1", "symbol": "a", "isEpsilon": false },
+    { "id": "t2", "from": "q0", "to": "q0", "symbol": "b", "isEpsilon": false },
+    { "id": "t3", "from": "q1", "to": "q1", "symbol": "a", "isEpsilon": false },
+    { "id": "t4", "from": "q1", "to": "q0", "symbol": "b", "isEpsilon": false },
+    { "id": "t5", "from": "q_inalcanzable1", "to": "q_inalcanzable2", "symbol": "a", "isEpsilon": false },
+    { "id": "t6", "from": "q_inalcanzable2", "to": "q0", "symbol": "b", "isEpsilon": false }
+  ]
+}

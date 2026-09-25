@@ -1,0 +1,75 @@
+{
+  "name": "AFND con Transiciones Epsilon",
+  "type": "NFA",
+  "alphabet": ["a", "b"],
+  "states": [
+    {
+      "id": "s0",
+      "label": "q0",
+      "isStart": true,
+      "isAccept": false
+    },
+    {
+      "id": "s1",
+      "label": "q1",
+      "isStart": false,
+      "isAccept": false
+    },
+    {
+      "id": "s2",
+      "label": "q2",
+      "isStart": false,
+      "isAccept": false
+    },
+    {
+      "id": "s3",
+      "label": "q3",
+      "isStart": false,
+      "isAccept": true
+    }
+  ],
+  "transitions": [
+    {
+      "id": "t1",
+      "from": "s0",
+      "to": "s1",
+      "symbol": "",
+      "isEpsilon": true
+    },
+    {
+      "id": "t2",
+      "from": "s0",
+      "to": "s2",
+      "symbol": "",
+      "isEpsilon": true
+    },
+    {
+      "id": "t3",
+      "from": "s1",
+      "to": "s1",
+      "symbol": "a",
+      "isEpsilon": false
+    },
+    {
+      "id": "t4",
+      "from": "s1",
+      "to": "s3",
+      "symbol": "b",
+      "isEpsilon": false
+    },
+    {
+      "id": "t5",
+      "from": "s2",
+      "to": "s2",
+      "symbol": "b",
+      "isEpsilon": false
+    },
+    {
+      "id": "t6",
+      "from": "s2",
+      "to": "s3",
+      "symbol": "a",
+      "isEpsilon": false
+    }
+  ]
+}

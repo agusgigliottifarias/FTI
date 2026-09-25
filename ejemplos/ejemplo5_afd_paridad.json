@@ -1,0 +1,21 @@
+{
+  "name": "AFD Paridad de Ceros",
+  "type": "DFA",
+  "alphabet": ["0", "1"],
+  "states": [
+    { "id": "PAR_A", "label": "PAR_A", "isStart": true, "isAccept": true },
+    { "id": "PAR_B", "label": "PAR_B", "isStart": false, "isAccept": true },
+    { "id": "IMPAR_A", "label": "IMPAR_A", "isStart": false, "isAccept": false },
+    { "id": "IMPAR_B", "label": "IMPAR_B", "isStart": false, "isAccept": false }
+  ],
+  "transitions": [
+    { "id": "t1", "from": "PAR_A", "to": "IMPAR_A", "symbol": "0", "isEpsilon": false },
+    { "id": "t2", "from": "PAR_A", "to": "PAR_B", "symbol": "1", "isEpsilon": false },
+    { "id": "t3", "from": "PAR_B", "to": "IMPAR_B", "symbol": "0", "isEpsilon": false },
+    { "id": "t4", "from": "PAR_B", "to": "PAR_A", "symbol": "1", "isEpsilon": false },
+    { "id": "t5", "from": "IMPAR_A", "to": "PAR_A", "symbol": "0", "isEpsilon": false },
+    { "id": "t6", "from": "IMPAR_A", "to": "IMPAR_B", "symbol": "1", "isEpsilon": false },
+    { "id": "t7", "from": "IMPAR_B", "to": "PAR_B", "symbol": "0", "isEpsilon": false },
+    { "id": "t8", "from": "IMPAR_B", "to": "IMPAR_A", "symbol": "1", "isEpsilon": false }
+  ]
+}

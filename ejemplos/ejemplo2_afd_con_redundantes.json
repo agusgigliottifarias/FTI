@@ -1,0 +1,49 @@
+{
+  "name": "AFD con Estados Equivalentes Redundantes",
+  "type": "DFA",
+  "alphabet": ["0", "1"],
+  "states": [
+    {
+      "id": "A",
+      "label": "A",
+      "isStart": true,
+      "isAccept": false
+    },
+    {
+      "id": "B",
+      "label": "B",
+      "isStart": false,
+      "isAccept": true
+    },
+    {
+      "id": "C",
+      "label": "C",
+      "isStart": false,
+      "isAccept": true
+    },
+    {
+      "id": "D",
+      "label": "D",
+      "isStart": false,
+      "isAccept": false
+    },
+    {
+      "id": "E",
+      "label": "E",
+      "isStart": false,
+      "isAccept": false
+    }
+  ],
+  "transitions": [
+    { "id": "t1", "from": "A", "to": "B", "symbol": "1", "isEpsilon": false },
+    { "id": "t2", "from": "A", "to": "D", "symbol": "0", "isEpsilon": false },
+    { "id": "t3", "from": "B", "to": "C", "symbol": "1", "isEpsilon": false },
+    { "id": "t4", "from": "B", "to": "E", "symbol": "0", "isEpsilon": false },
+    { "id": "t5", "from": "C", "to": "B", "symbol": "1", "isEpsilon": false },
+    { "id": "t6", "from": "C", "to": "D", "symbol": "0", "isEpsilon": false },
+    { "id": "t7", "from": "D", "to": "B", "symbol": "1", "isEpsilon": false },
+    { "id": "t8", "from": "D", "to": "E", "symbol": "0", "isEpsilon": false },
+    { "id": "t9", "from": "E", "to": "C", "symbol": "1", "isEpsilon": false },
+    { "id": "t10", "from": "E", "to": "D", "symbol": "0", "isEpsilon": false }
+  ]
+}
