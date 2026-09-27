@@ -1,75 +1,83 @@
 {
   "name": "AFND con Transiciones Epsilon",
   "type": "NFA",
-  "alphabet": ["a", "b"],
   "states": [
     {
-      "id": "s0",
+      "id": "6b2e574b-e9cf-4d4d-a2c2-85b61d7eec89",
       "label": "q0",
+      "x": 100.0,
+      "y": 100.0,
       "isStart": true,
       "isAccept": false
     },
     {
-      "id": "s1",
+      "id": "787228ea-e116-4f1c-9e24-4f8ec2d4b169",
       "label": "q1",
+      "x": 250.0,
+      "y": 100.0,
       "isStart": false,
       "isAccept": false
     },
     {
-      "id": "s2",
+      "id": "51cc052f-cdb8-45d7-a27e-1ef0ee1b403c",
       "label": "q2",
+      "x": 250.0,
+      "y": 250.0,
       "isStart": false,
       "isAccept": false
     },
     {
-      "id": "s3",
+      "id": "d3e1551b-50f6-49ee-aff2-a210c3bf196b",
       "label": "q3",
+      "x": 400.0,
+      "y": 175.0,
       "isStart": false,
       "isAccept": true
     }
   ],
   "transitions": [
     {
-      "id": "t1",
-      "from": "s0",
-      "to": "s1",
+      "id": "t101",
+      "from": "6b2e574b-e9cf-4d4d-a2c2-85b61d7eec89",
+      "to": "787228ea-e116-4f1c-9e24-4f8ec2d4b169",
       "symbol": "",
       "isEpsilon": true
     },
     {
-      "id": "t2",
-      "from": "s0",
-      "to": "s2",
+      "id": "t102",
+      "from": "6b2e574b-e9cf-4d4d-a2c2-85b61d7eec89",
+      "to": "51cc052f-cdb8-45d7-a27e-1ef0ee1b403c",
       "symbol": "",
       "isEpsilon": true
     },
     {
-      "id": "t3",
-      "from": "s1",
-      "to": "s1",
+      "id": "t103",
+      "from": "787228ea-e116-4f1c-9e24-4f8ec2d4b169",
+      "to": "787228ea-e116-4f1c-9e24-4f8ec2d4b169",
       "symbol": "a",
       "isEpsilon": false
     },
     {
-      "id": "t4",
-      "from": "s1",
-      "to": "s3",
+      "id": "t104",
+      "from": "787228ea-e116-4f1c-9e24-4f8ec2d4b169",
+      "to": "d3e1551b-50f6-49ee-aff2-a210c3bf196b",
       "symbol": "b",
       "isEpsilon": false
     },
     {
-      "id": "t5",
-      "from": "s2",
-      "to": "s2",
+      "id": "t105",
+      "from": "51cc052f-cdb8-45d7-a27e-1ef0ee1b403c",
+      "to": "51cc052f-cdb8-45d7-a27e-1ef0ee1b403c",
       "symbol": "b",
       "isEpsilon": false
     },
     {
-      "id": "t6",
-      "from": "s2",
-      "to": "s3",
+      "id": "t106",
+      "from": "51cc052f-cdb8-45d7-a27e-1ef0ee1b403c",
+      "to": "d3e1551b-50f6-49ee-aff2-a210c3bf196b",
       "symbol": "a",
       "isEpsilon": false
     }
-  ]
+  ],
+  "alphabet": ["a", "b"]
 }

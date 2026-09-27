@@ -53,12 +53,14 @@ def exportar_automata_json(automata: Automata, ruta: str, nombre: str = "Automat
     state_list = []
     id_map = {}
     
-    for e in sorted(automata.estados):
+    for i, e in enumerate(sorted(automata.estados)):
         sid = str(uuid.uuid4())
         id_map[e] = sid
         state_list.append({
             "id": sid,
             "label": e,
+            "x": 100.0 + (i % 5) * 150.0,
+            "y": 100.0 + (i // 5) * 150.0,
             "isStart": (e == automata.inicial),
             "isAccept": (e in automata.finales)
         })
@@ -80,7 +82,20 @@ def exportar_automata_json(automata: Automata, ruta: str, nombre: str = "Automat
         "type": "DFA",
         "alphabet": sorted(list(automata.alfabeto)),
         "states": state_list,
-        "transitions": trans_list
+        "transitions": trans_list,
+        "alfabeto": sorted(list(automata.alfabeto)),
+        "estados": sorted(list(automata.estados)),
+        "inicial": automata.inicial,
+        "finales": sorted(list(automata.finales)),
+        "transiciones": [
+            {
+                "origen": orig,
+                "simbolo": s,
+                "destino": d
+            }
+            for (orig, s), dests in sorted(automata.transiciones.items())
+            for d in dests
+        ]
     }
     
     with open(ruta, "w", encoding="utf-8") as f:

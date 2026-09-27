@@ -3,20 +3,10 @@ from typing import Dict, Tuple, Set
 from modelo import Automata
 
 def minimizar_afd(afd: Automata) -> Automata:
-    alcanzables = set()
-    cola = deque([afd.inicial])
-    alcanzables.add(afd.inicial)
+    afd.eliminar_inalcanzables()
 
-    while cola:
-        act = cola.popleft()
-        for s in afd.alfabeto:
-            dest = list(afd.transiciones.get((act, s), set()))
-            if dest and dest[0] not in alcanzables:
-                alcanzables.add(dest[0])
-                cola.append(dest[0])
-
-    estados_validos = alcanzables
-    finales_validos = afd.finales & estados_validos
+    estados_validos = afd.estados
+    finales_validos = afd.finales
     no_finales_validos = estados_validos - finales_validos
 
     particiones = []

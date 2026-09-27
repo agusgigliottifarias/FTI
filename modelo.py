@@ -42,3 +42,28 @@ class Automata:
                 return False
             actuales = self.clausura_epsilon(alcanzados, eps_simbolo)
         return any(e in self.finales for e in actuales)
+
+    def eliminar_inalcanzables(self, eps_simbolo: str = '#'):
+        from collections import deque
+        alcanzables = set(self.clausura_epsilon({self.inicial}, eps_simbolo))
+        cola = deque(alcanzables)
+        
+        while cola:
+            act = cola.popleft()
+            for s in self.alfabeto:
+                if s == eps_simbolo:
+                    continue
+                dests = self.mover(frozenset([act]), s)
+                claus = self.clausura_epsilon(dests, eps_simbolo)
+                for e in claus:
+                    if e not in alcanzables:
+                        alcanzables.add(e)
+                        cola.append(e)
+                        
+        self.estados = alcanzables
+        self.finales = self.finales & alcanzables
+        self.transiciones = {
+            (orig, s): {d for d in dests if d in alcanzables}
+            for (orig, s), dests in self.transiciones.items()
+            if orig in alcanzables
+        }
