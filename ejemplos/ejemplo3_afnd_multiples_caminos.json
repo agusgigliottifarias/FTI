@@ -6,18 +6,24 @@
     {
       "id": "q0",
       "label": "q0",
+      "x": 100.0,
+      "y": 100.0,
       "isStart": true,
       "isAccept": false
     },
     {
       "id": "q1",
       "label": "q1",
+      "x": 250.0,
+      "y": 100.0,
       "isStart": false,
       "isAccept": false
     },
     {
       "id": "q2",
       "label": "q2",
+      "x": 400.0,
+      "y": 100.0,
       "isStart": false,
       "isAccept": true
     }

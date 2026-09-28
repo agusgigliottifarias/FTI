@@ -1,0 +1,28 @@
+# Entorno virtual
+.venv/
+
+# Cache de Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de salida generados automáticamente
+resultado_minimo.json
+resultado_minimo.txt
+grafico_*.dot
+*.dot
+
+# Archivos de entrada por defecto
+entrada.json
+
+# Duplicados en TXT de los módulos
+modelo.txt
+conversor.txt
+minimizador.txt
+io_handler.txt
+main.txt
+codigo_completo.txt
+
+# Archivos temporales y de sistema
+.DS_Store
+*.log

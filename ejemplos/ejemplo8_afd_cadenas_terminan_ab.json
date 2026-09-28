@@ -1,0 +1,18 @@
+{
+  "name": "AFD - Cadenas que Terminan en 'ab'",
+  "type": "DFA",
+  "alphabet": ["a", "b"],
+  "states": [
+    { "id": "q0", "label": "q0", "x": 100.0, "y": 200.0, "isStart": true,  "isAccept": false },
+    { "id": "q1", "label": "q1", "x": 350.0, "y": 200.0, "isStart": false, "isAccept": false },
+    { "id": "q2", "label": "q2", "x": 600.0, "y": 200.0, "isStart": false, "isAccept": true  }
+  ],
+  "transitions": [
+    { "id": "t1", "from": "q0", "to": "q1", "symbol": "a", "isEpsilon": false },
+    { "id": "t2", "from": "q0", "to": "q0", "symbol": "b", "isEpsilon": false },
+    { "id": "t3", "from": "q1", "to": "q1", "symbol": "a", "isEpsilon": false },
+    { "id": "t4", "from": "q1", "to": "q2", "symbol": "b", "isEpsilon": false },
+    { "id": "t5", "from": "q2", "to": "q1", "symbol": "a", "isEpsilon": false },
+    { "id": "t6", "from": "q2", "to": "q0", "symbol": "b", "isEpsilon": false }
+  ]
+}

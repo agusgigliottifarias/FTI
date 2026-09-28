@@ -6,30 +6,40 @@
     {
       "id": "A",
       "label": "A",
+      "x": 100.0,
+      "y": 100.0,
       "isStart": true,
       "isAccept": false
     },
     {
       "id": "B",
       "label": "B",
+      "x": 250.0,
+      "y": 100.0,
       "isStart": false,
       "isAccept": true
     },
     {
       "id": "C",
       "label": "C",
+      "x": 400.0,
+      "y": 100.0,
       "isStart": false,
       "isAccept": true
     },
     {
       "id": "D",
       "label": "D",
+      "x": 100.0,
+      "y": 250.0,
       "isStart": false,
       "isAccept": false
     },
     {
       "id": "E",
       "label": "E",
+      "x": 250.0,
+      "y": 250.0,
       "isStart": false,
       "isAccept": false
     }

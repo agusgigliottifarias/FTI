@@ -1,107 +1,125 @@
-# Trabajo Práctico Integrador I - Fundamentos de Teoría de la Computación / Informática
+# Trabajo Práctico Integrador I
+## Fundamentos Teóricos de la Informática
 
-Este proyecto implementa en Python un sistema completo para el procesamiento, conversión y minimización de Autómatas Finitos.
+**Conversión de AFND a AFD y Minimización de Autómatas Finitos**
 
-## 📌 Funcionalidades Principales
-
-1. **Eliminación de No Determinismo (AFND $\rightarrow$ AFD):** Convierte cualquier Autómata Finito No Determinista (con o sin transiciones $\epsilon$ / nulas) a su Autómata Finito Determinista equivalente utilizando el **Algoritmo de Construcción de Subconjuntos**.
-2. **Minimización de Autómatas (AFD $\rightarrow$ AFD Mínimo):** Elimina estados inalcanzables y aplica el **Algoritmo de Refinamiento de Particiones** (equivalencia de Moore/Hopcroft) para obtener el autómata mínimo equivalente.
-3. **Soporte I/O Multiformato:** Carga y exporta autómatas en archivos **JSON** y **Texto Plano**.
-4. **Visualización y Reportes:** 
-   * Muestra tablas de transiciones formateadas en la terminal.
-   * Genera gráficos vectoriales en formato **Graphviz (`.dot`)**.
-   * Abre ventanas emergentes interactivas con los autómatas dibujados en pantalla.
-5. **Validación de Cadenas:** Prueba y demuestra formalmente que $L(AFND) = L(AFD_{min})$.
+| | |
+|---|---|
+| **Materia** | Fundamentos Teóricos de la Informática |
+| **Integrantes** | Agustin Gigliotti Farias · Moises Kutnich |
+| **Docentes** | Ing. Leonardo Moreno · Lic. Pablo Toledo |
+| **Fecha de Entrega** | 28 de septiembre de 2026 |
 
 ---
 
-## 🛠️ Instalación y Configuración del Entorno (`.venv`)
+## ¿Qué hace este programa?
 
-### 1. Clonar o Descargar el Proyecto
-Navega hasta la carpeta del proyecto en tu terminal:
+Este proyecto implementa en Python un sistema completo que toma un autómata no determinista (AFND), lo convierte a su versión determinista equivalente (AFD) y luego lo reduce al mínimo posible sin cambiar el lenguaje que reconoce.
+
+El programa hace 3 cosas en orden:
+
+1. **Convierte el AFND a AFD** usando el Algoritmo de Construcción de Subconjuntos con clausura lambda (λ).
+2. **Minimiza el AFD** eliminando estados inalcanzables y fusionando estados equivalentes con el Algoritmo de Refinamiento de Particiones.
+3. **Valida la equivalencia** probando cadenas de prueba y verificando que el AFND original y el AFD mínimo aceptan exactamente las mismas palabras.
+
+---
+
+## Estructura del proyecto
+
+```
+Trabajo_Practico_Integrador_I_FTI/
+│
+├── modelo.py          # Clase Automata: definición, clausura_lambda y evaluación de cadenas
+├── conversor.py       # Algoritmo de Construcción de Subconjuntos (AFND → AFD)
+├── minimizador.py     # Algoritmo de Refinamiento de Particiones (AFD → AFD Mínimo)
+├── io_handler.py      # Lectura/escritura JSON y TXT, tablas ASCII y gráfico con Matplotlib
+├── main.py            # Punto de entrada principal, orquesta el flujo completo
+├── test_automata.py   # Suite de 5 pruebas unitarias automatizadas (unittest)
+│
+├── ejemplos/
+│   ├── ejemplo1_afnd_con_epsilon.json       # AFND con transiciones lambda (4 estados)
+│   ├── ejemplo2_afd_con_redundantes.json    # AFD con estados equivalentes (5 estados)
+│   ├── ejemplo3_afnd_multiples_caminos.json # AFND con múltiples caminos (3 estados)
+│   ├── ejemplo4_afd_inalcanzables.json      # AFD con estados inalcanzables (4 estados)
+│   └── ejemplo5_afd_paridad.json            # AFD de paridad, ya mínimo (4 estados)
+│
+├── requirements.txt   # Dependencias del proyecto
+├── entrada.json       # Archivo de entrada por defecto
+└── README.md
+```
+
+---
+
+## Instalación
+
+### 1. Clonar el repositorio
 
 ```bash
 git clone git@github.com:agusgigliottifarias/Trabajo_Pr-ctico_Integrador_I_FTI.git
+cd Trabajo_Pr-ctico_Integrador_I_FTI
 ```
 
-### 2. Activar el Entorno Virtual (`.venv`)
-
-* **En Linux / macOS:**
-  ```bash
-  source .venv/bin/activate
-  ```
-* **En Windows (PowerShell):**
-  ```powershell
-  .venv\Scripts\Activate.ps1
-  ```
-
-### 3. Instalar las Dependencias
-Con el entorno virtual activado, instala todos los paquetes necesarios:
+### 2. Activar el entorno virtual
 
 ```bash
-.venv/bin/pip install -r requirements.txt`
+source .venv/bin/activate
 ```
 
-
----
-
-## 🚀 Uso y Ejecución
-
-### 1. Ejecución con el archivo por defecto (`entrada.json`)
+### 3. Instalar dependencias
 
 ```bash
-.venv/bin/python main.py
+pip install -r requirements.txt
 ```
+## Dependencias
 
-### 2. Ejecución pasando un archivo de la carpeta `ejemplos/`
+| Librería | Uso |
+|---|---|
+| `matplotlib` | Renderizado gráfico del autómata en ventana emergente (solo Linux) |
+| `networkx` | Construcción del grafo de estados y transiciones |
 
-Puedes probar cualquiera de los 5 casos de prueba incluidos en la carpeta `ejemplos/`:
-
+Instalables con:
 ```bash
-# Ejemplo 1: AFND con transiciones Épsilon (#)
-.venv/bin/python main.py ejemplos/ejemplo1_afnd_con_epsilon.json
-
-# Ejemplo 2: AFD con estados equivalentes redundantes
-.venv/bin/python main.py ejemplos/ejemplo2_afd_con_redundantes.json
-
-# Ejemplo 3: AFND con múltiples caminos de transición
-.venv/bin/python main.py ejemplos/ejemplo3_afnd_multiples_caminos.json
-
-# Ejemplo 4: AFD con estados inalcanzables desde el inicio
-.venv/bin/python main.py ejemplos/ejemplo4_afd_inalcanzables.json
-
-# Ejemplo 5: AFD de paridad de ceros
-.venv/bin/python main.py ejemplos/ejemplo5_afd_paridad.json
+pip install -r requirements.txt
 ```
 
 ---
 
-## 🧪 Ejecución de Pruebas Unitarias Automated
+## Visualización de los autómatas
 
-Para verificar el correcto funcionamiento de los algoritmos mediante la suite de tests automáticos (`unittest`):
+**En Linux:** El programa abre automáticamente una ventana gráfica con el diagrama del autómata al finalizar cada ejecución.
 
+**En Windows (WSL):** La ventana gráfica no funciona en WSL porque no tiene acceso al sistema de ventanas de Windows por defecto (no tiene servidor gráfico X11 configurado). En ese caso, para evitar andar instalando dependencias fuera del proyecto, el programa igual genera el archivo `resultado_minimo.json` al terminar, que puede importarse directamente en **[AutomataLab](https://www.automataaa.com/)** para visualizar el diagrama del autómata.
+
+---
+
+## Cómo ejecutarlo
+
+### Con un ejemplo incluido
 ```bash
-.venv/bin/python -m unittest test_automata.py
+python3 main.py ejemplos/ejemplo1_afnd_con_epsilon.json
+python3 main.py ejemplos/ejemplo2_afd_con_redundantes.json
+python3 main.py ejemplos/ejemplo3_afnd_multiples_caminos.json
+python3 main.py ejemplos/ejemplo4_afd_inalcanzables.json
+python3 main.py ejemplos/ejemplo5_afd_paridad.json
 ```
 
----
+### Con tu propio archivo
+```bash
+python3 main.py ruta/tu_automata.json
+```
 
-## 📁 Estructura del Código
-
-* 📄 `modelo.py`: Clase base `Automata` (transiciones, clausura $\epsilon$, función `mover`, evaluación de cadenas).
-* 📄 `conversor.py`: Lógica de conversión AFND $\rightarrow$ AFD (`afnd_a_afd`).
-* 📄 `minimizador.py`: Algoritmo de minimización de estados (`minimizar_afd`).
-* 📄 `io_handler.py`: Módulo de E/S para cargar y guardar en JSON/Texto, generar tablas ASCII y gráficos DOT/ventanas.
-* 📄 `main.py`: Punto de entrada y orquestador principal.
-* 📄 `test_automata.py`: Suite de pruebas unitarias automáticas.
-* 📂 `ejemplos/`: Carpeta con 5 archivos JSON de prueba.
-* 📄 `requirements.txt`: Lista de dependencias del proyecto.
+> El archivo debe estar en formato JSON compatible con AutomataLab.
 
 ---
 
-## 📤 Resultados de Salida
+## Archivos de salida
 
-Cada ejecución genera automáticamente los siguientes archivos de salida en la raíz:
-* `resultado_minimo.json`: El autómata determinista mínimo resultante en formato JSON.
-* `resultado_minimo.txt`: El autómata mínimo en formato de texto plano.
-* `grafico_afnd.dot`, `grafico_afd.dot`, `grafico_minimo.dot`: Código fuente Graphviz para incluir gráficos en el informe técnico.
+Cada ejecución genera automáticamente en la raíz del proyecto:
+
+| Archivo | Descripción |
+|---|---|
+| `resultado_minimo.json` | AFD Mínimo en formato JSON compatible con AutomataLab |
+| `resultado_minimo.txt` | AFD Mínimo en formato de texto plano |
+
+---
+

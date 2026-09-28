@@ -3,10 +3,10 @@
   "type": "DFA",
   "alphabet": ["0", "1"],
   "states": [
-    { "id": "PAR_A", "label": "PAR_A", "isStart": true, "isAccept": true },
-    { "id": "PAR_B", "label": "PAR_B", "isStart": false, "isAccept": true },
-    { "id": "IMPAR_A", "label": "IMPAR_A", "isStart": false, "isAccept": false },
-    { "id": "IMPAR_B", "label": "IMPAR_B", "isStart": false, "isAccept": false }
+    { "id": "PAR_A", "label": "PAR_A", "x": 100.0, "y": 100.0, "isStart": true, "isAccept": true },
+    { "id": "PAR_B", "label": "PAR_B", "x": 250.0, "y": 100.0, "isStart": false, "isAccept": true },
+    { "id": "IMPAR_A", "label": "IMPAR_A", "x": 100.0, "y": 250.0, "isStart": false, "isAccept": false },
+    { "id": "IMPAR_B", "label": "IMPAR_B", "x": 250.0, "y": 250.0, "isStart": false, "isAccept": false }
   ],
   "transitions": [
     { "id": "t1", "from": "PAR_A", "to": "IMPAR_A", "symbol": "0", "isEpsilon": false },

@@ -1,0 +1,33 @@
+{
+  "name": "AFD - Multiples Iteraciones de Minimizacion (8 estados, minimo 2)",
+  "type": "DFA",
+  "alphabet": ["0", "1"],
+  "states": [
+    { "id": "A", "label": "A", "x": 100.0, "y": 100.0, "isStart": true,  "isAccept": true  },
+    { "id": "B", "label": "B", "x": 300.0, "y": 100.0, "isStart": false, "isAccept": false },
+    { "id": "C", "label": "C", "x": 500.0, "y": 100.0, "isStart": false, "isAccept": true  },
+    { "id": "D", "label": "D", "x": 700.0, "y": 100.0, "isStart": false, "isAccept": false },
+    { "id": "E", "label": "E", "x": 100.0, "y": 300.0, "isStart": false, "isAccept": true  },
+    { "id": "F", "label": "F", "x": 300.0, "y": 300.0, "isStart": false, "isAccept": false },
+    { "id": "G", "label": "G", "x": 500.0, "y": 300.0, "isStart": false, "isAccept": true  },
+    { "id": "H", "label": "H", "x": 700.0, "y": 300.0, "isStart": false, "isAccept": false }
+  ],
+  "transitions": [
+    { "id": "t1",  "from": "A", "to": "C", "symbol": "0", "isEpsilon": false },
+    { "id": "t2",  "from": "A", "to": "B", "symbol": "1", "isEpsilon": false },
+    { "id": "t3",  "from": "B", "to": "D", "symbol": "0", "isEpsilon": false },
+    { "id": "t4",  "from": "B", "to": "A", "symbol": "1", "isEpsilon": false },
+    { "id": "t5",  "from": "C", "to": "E", "symbol": "0", "isEpsilon": false },
+    { "id": "t6",  "from": "C", "to": "D", "symbol": "1", "isEpsilon": false },
+    { "id": "t7",  "from": "D", "to": "F", "symbol": "0", "isEpsilon": false },
+    { "id": "t8",  "from": "D", "to": "C", "symbol": "1", "isEpsilon": false },
+    { "id": "t9",  "from": "E", "to": "G", "symbol": "0", "isEpsilon": false },
+    { "id": "t10", "from": "E", "to": "F", "symbol": "1", "isEpsilon": false },
+    { "id": "t11", "from": "F", "to": "H", "symbol": "0", "isEpsilon": false },
+    { "id": "t12", "from": "F", "to": "E", "symbol": "1", "isEpsilon": false },
+    { "id": "t13", "from": "G", "to": "A", "symbol": "0", "isEpsilon": false },
+    { "id": "t14", "from": "G", "to": "H", "symbol": "1", "isEpsilon": false },
+    { "id": "t15", "from": "H", "to": "B", "symbol": "0", "isEpsilon": false },
+    { "id": "t16", "from": "H", "to": "G", "symbol": "1", "isEpsilon": false }
+  ]
+}
