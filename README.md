@@ -34,15 +34,7 @@ Trabajo_Practico_Integrador_I_FTI/
 ├── minimizador.py     # Algoritmo de Refinamiento de Particiones (AFD → AFD Mínimo)
 ├── io_handler.py      # Lectura/escritura JSON y TXT, tablas ASCII y gráfico con Matplotlib
 ├── main.py            # Punto de entrada principal, orquesta el flujo completo
-├── test_automata.py   # Suite de 5 pruebas unitarias automatizadas (unittest)
-│
 ├── ejemplos/
-│   ├── ejemplo1_afnd_con_epsilon.json       # AFND con transiciones lambda (4 estados)
-│   ├── ejemplo2_afd_con_redundantes.json    # AFD con estados equivalentes (5 estados)
-│   ├── ejemplo3_afnd_multiples_caminos.json # AFND con múltiples caminos (3 estados)
-│   ├── ejemplo4_afd_inalcanzables.json      # AFD con estados inalcanzables (4 estados)
-│   └── ejemplo5_afd_paridad.json            # AFD de paridad, ya mínimo (4 estados)
-│
 ├── requirements.txt   # Dependencias del proyecto
 ├── entrada.json       # Archivo de entrada por defecto
 └── README.md
