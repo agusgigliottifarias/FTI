@@ -8,7 +8,6 @@ from io_handler import (
     exportar_automata, 
     exportar_automata_json, 
     imprimir_tabla_terminal, 
-    exportar_grafico_dot,
     mostrar_ventana_grafica
 )
 
@@ -23,27 +22,18 @@ if __name__ == "__main__":
     print(f"\n[INFO] Cargando autómata desde archivo: {ruta_entrada}")
     nfa = cargar_automata_auto(ruta_entrada)
 
-    # 2. Conversión a AFD y Minimización
     dfa = afnd_a_afd(nfa)
     min_dfa = minimizar_afd(dfa)
 
-    # 3. Mostrar Tablas de Transiciones en la Terminal
     imprimir_tabla_terminal(nfa, f"1. Autómata Original (AFND) - [{ruta_entrada}]")
     imprimir_tabla_terminal(dfa, "2. Autómata Determinista Intermedio (AFD)")
     imprimir_tabla_terminal(min_dfa, "3. Autómata Determinista Mínimo (AFD Mínimo)")
 
-    # 4. Exportar Archivos de Texto, JSON y Gráficos (Graphviz DOT)
     exportar_automata(min_dfa, "resultado_minimo.txt")
     exportar_automata_json(min_dfa, "resultado_minimo.json")
-    exportar_grafico_dot(nfa, "grafico_afnd.dot", "AFND Original")
-    exportar_grafico_dot(dfa, "grafico_afd.dot", "AFD Intermedio")
-    exportar_grafico_dot(min_dfa, "grafico_minimo.dot", "AFD Mínimo")
     print(f"\n[INFO] Resultado exportado a 'resultado_minimo.json' y 'resultado_minimo.txt'")
 
-    # 5. Ventana Emergente Gráfica
     mostrar_ventana_grafica(min_dfa, "Autómata Determinista Mínimo")
-
-    # 5. Mapeo de Métricas
     print("\n" + "=" * 60)
     print(" RESUMEN DE MÉTRICAS ")
     print("=" * 60)
@@ -51,7 +41,6 @@ if __name__ == "__main__":
     print(f"• Estados AFD Intermedio: {len(dfa.estados)}")
     print(f"• Estados AFD Mínimo    : {len(min_dfa.estados)}")
 
-    # 6. Validación de Cadenas y Demostración de Equivalencia
     pruebas = ["ab", "aab", "bba", "aaab", "b", ""]
     print("\n" + "=" * 60)
     print(" VALIDACIÓN DE CADENAS Y DEMOSTRACIÓN DE EQUIVALENCIA ")

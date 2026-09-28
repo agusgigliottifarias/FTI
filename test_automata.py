@@ -5,14 +5,14 @@ from minimizador import minimizar_afd
 
 class TestAutomata(unittest.TestCase):
     
-    def test_afnd_con_epsilon(self):
-        # Autómata con transición épsilon (#)
+    def test_afnd_con_lambda(self):
+        # Autómata con transición lambda (#)
         nfa = Automata(alfabeto={'a', 'b', '#'}, estados={'q0', 'q1', 'q2'}, inicial='q0', finales={'q2'})
         nfa.agregar_transicion('q0', '#', 'q1')
         nfa.agregar_transicion('q1', 'a', 'q1')
         nfa.agregar_transicion('q1', 'b', 'q2')
 
-        dfa = afnd_a_afd(nfa, eps_simbolo='#')
+        dfa = afnd_a_afd(nfa, lambda_simbolo='#')
         min_dfa = minimizar_afd(dfa)
 
         self.assertTrue(nfa.evaluar_cadena("ab"))

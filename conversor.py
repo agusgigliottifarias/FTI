@@ -2,9 +2,9 @@ from collections import deque
 from typing import Dict, Tuple, FrozenSet
 from modelo import Automata
 
-def afnd_a_afd(afnd: Automata, eps_simbolo: str = '#') -> Automata:
-    alfabeto_limpio = {s for s in afnd.alfabeto if s != eps_simbolo}
-    inicio_clausura = afnd.clausura_epsilon({afnd.inicial}, eps_simbolo)
+def afnd_a_afd(afnd: Automata, lambda_simbolo: str = '#') -> Automata:
+    alfabeto_limpio = {s for s in afnd.alfabeto if s != lambda_simbolo}
+    inicio_clausura = afnd.clausura_lambda({afnd.inicial}, lambda_simbolo)
     mapeo_estados: Dict[FrozenSet[str], str] = {inicio_clausura: "S0"}
     cola = deque([inicio_clausura])
     
@@ -19,7 +19,7 @@ def afnd_a_afd(afnd: Automata, eps_simbolo: str = '#') -> Automata:
             mov = afnd.mover(actual_set, s)
             if not mov:
                 continue
-            destino_set = afnd.clausura_epsilon(mov, eps_simbolo)
+            destino_set = afnd.clausura_lambda(mov, lambda_simbolo)
 
             if destino_set not in mapeo_estados:
                 mapeo_estados[destino_set] = f"S{contador}"

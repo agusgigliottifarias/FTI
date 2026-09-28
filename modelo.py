@@ -14,12 +14,12 @@ class Automata:
             self.transiciones[clave] = set()
         self.transiciones[clave].add(destino)
 
-    def clausura_epsilon(self, estados: Set[str], eps_simbolo: str = '#') -> FrozenSet[str]:
+    def clausura_lambda(self, estados: Set[str], lambda_simbolo: str = '#') -> FrozenSet[str]:
         pila = list(estados)
         clausura = set(estados)
         while pila:
             actual = pila.pop()
-            alcanzables = self.transiciones.get((actual, eps_simbolo), set())
+            alcanzables = self.transiciones.get((actual, lambda_simbolo), set())
             for sig in alcanzables:
                 if sig not in clausura:
                     clausura.add(sig)
@@ -32,29 +32,29 @@ class Automata:
             destinos.update(self.transiciones.get((e, simbolo), set()))
         return destinos
 
-    def evaluar_cadena(self, cadena: str, eps_simbolo: str = '#') -> bool:
-        actuales = self.clausura_epsilon({self.inicial}, eps_simbolo)
+    def evaluar_cadena(self, cadena: str, lambda_simbolo: str = '#') -> bool:
+        actuales = self.clausura_lambda({self.inicial}, lambda_simbolo)
         for char in cadena:
             if char not in self.alfabeto:
                 return False
             alcanzados = self.mover(actuales, char)
             if not alcanzados:
                 return False
-            actuales = self.clausura_epsilon(alcanzados, eps_simbolo)
+            actuales = self.clausura_lambda(alcanzados, lambda_simbolo)
         return any(e in self.finales for e in actuales)
 
-    def eliminar_inalcanzables(self, eps_simbolo: str = '#'):
+    def eliminar_inalcanzables(self, lambda_simbolo: str = '#'):
         from collections import deque
-        alcanzables = set(self.clausura_epsilon({self.inicial}, eps_simbolo))
+        alcanzables = set(self.clausura_lambda({self.inicial}, lambda_simbolo))
         cola = deque(alcanzables)
         
         while cola:
             act = cola.popleft()
             for s in self.alfabeto:
-                if s == eps_simbolo:
+                if s == lambda_simbolo:
                     continue
                 dests = self.mover(frozenset([act]), s)
-                claus = self.clausura_epsilon(dests, eps_simbolo)
+                claus = self.clausura_lambda(dests, lambda_simbolo)
                 for e in claus:
                     if e not in alcanzables:
                         alcanzables.add(e)

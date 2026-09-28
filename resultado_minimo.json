@@ -7,7 +7,7 @@
   ],
   "states": [
     {
-      "id": "4402f95e-2250-4447-93ed-647a208938e4",
+      "id": "fad2f2cb-bd60-466d-b7df-bb721bddaff4",
       "label": "M0",
       "x": 100.0,
       "y": 100.0,
@@ -15,7 +15,7 @@
       "isAccept": true
     },
     {
-      "id": "324f01e3-0a81-4bbe-8cef-3bb9ecb5d14a",
+      "id": "f5529c28-03d6-4a73-afa4-0af51255a30b",
       "label": "M1",
       "x": 250.0,
       "y": 100.0,
@@ -23,106 +23,76 @@
       "isAccept": true
     },
     {
-      "id": "122e5e77-311d-4437-8f09-41f602788068",
+      "id": "c1c0275d-d4a0-415a-95db-5d721c462b4f",
       "label": "M2",
       "x": 400.0,
       "y": 100.0,
-      "isStart": false,
-      "isAccept": true
+      "isStart": true,
+      "isAccept": false
     },
     {
-      "id": "cd9fd515-74a8-4884-92f4-e58ac4710f37",
+      "id": "05a5b4f0-2766-4b67-bb64-f8a41af6c397",
       "label": "M3",
       "x": 550.0,
       "y": 100.0,
       "isStart": false,
       "isAccept": false
-    },
-    {
-      "id": "ce00ffd7-211a-4c30-9b69-0f06541246b2",
-      "label": "M4",
-      "x": 700.0,
-      "y": 100.0,
-      "isStart": false,
-      "isAccept": false
-    },
-    {
-      "id": "118c042a-f246-4798-8724-a2c058c37149",
-      "label": "M5",
-      "x": 100.0,
-      "y": 250.0,
-      "isStart": true,
-      "isAccept": false
     }
   ],
   "transitions": [
     {
-      "id": "fc43ad91-e6e7-421c-a12e-2e871c176955",
-      "from": "4402f95e-2250-4447-93ed-647a208938e4",
-      "to": "324f01e3-0a81-4bbe-8cef-3bb9ecb5d14a",
+      "id": "dc22e1b9-d3d4-410a-a8f4-eb081b48ef98",
+      "from": "fad2f2cb-bd60-466d-b7df-bb721bddaff4",
+      "to": "f5529c28-03d6-4a73-afa4-0af51255a30b",
       "symbol": "a",
       "isEpsilon": false
     },
     {
-      "id": "9cb67af9-a675-4150-9f01-09db0349af5b",
-      "from": "4402f95e-2250-4447-93ed-647a208938e4",
-      "to": "cd9fd515-74a8-4884-92f4-e58ac4710f37",
+      "id": "31e2d313-0e54-4b9e-bee8-1206017c8d3e",
+      "from": "fad2f2cb-bd60-466d-b7df-bb721bddaff4",
+      "to": "fad2f2cb-bd60-466d-b7df-bb721bddaff4",
       "symbol": "b",
       "isEpsilon": false
     },
     {
-      "id": "bb65def4-3ec3-452d-a2c4-5781a7ee1fce",
-      "from": "122e5e77-311d-4437-8f09-41f602788068",
-      "to": "ce00ffd7-211a-4c30-9b69-0f06541246b2",
+      "id": "3e371a4b-365c-42a5-81ce-21aaf87f5c4b",
+      "from": "f5529c28-03d6-4a73-afa4-0af51255a30b",
+      "to": "c1c0275d-d4a0-415a-95db-5d721c462b4f",
       "symbol": "a",
       "isEpsilon": false
     },
     {
-      "id": "383afe7e-f154-466c-a3f5-390a6d24017e",
-      "from": "122e5e77-311d-4437-8f09-41f602788068",
-      "to": "324f01e3-0a81-4bbe-8cef-3bb9ecb5d14a",
+      "id": "bd31d934-d8ba-4ec7-ae19-ece5862bb259",
+      "from": "f5529c28-03d6-4a73-afa4-0af51255a30b",
+      "to": "05a5b4f0-2766-4b67-bb64-f8a41af6c397",
       "symbol": "b",
       "isEpsilon": false
     },
     {
-      "id": "3c3ce64f-c29a-456f-b6db-cb8e4af1c898",
-      "from": "cd9fd515-74a8-4884-92f4-e58ac4710f37",
-      "to": "324f01e3-0a81-4bbe-8cef-3bb9ecb5d14a",
+      "id": "d7ade32c-520d-41b5-9042-7048c21b42c8",
+      "from": "c1c0275d-d4a0-415a-95db-5d721c462b4f",
+      "to": "c1c0275d-d4a0-415a-95db-5d721c462b4f",
       "symbol": "a",
       "isEpsilon": false
     },
     {
-      "id": "35e516c5-ddfb-4e4d-805b-bfb5befe3f3d",
-      "from": "cd9fd515-74a8-4884-92f4-e58ac4710f37",
-      "to": "cd9fd515-74a8-4884-92f4-e58ac4710f37",
+      "id": "dfded217-2d13-49d4-b308-960ef33b1f5a",
+      "from": "c1c0275d-d4a0-415a-95db-5d721c462b4f",
+      "to": "05a5b4f0-2766-4b67-bb64-f8a41af6c397",
       "symbol": "b",
       "isEpsilon": false
     },
     {
-      "id": "d3b0ad57-e7fd-4395-a7ff-42d9e9ba772d",
-      "from": "ce00ffd7-211a-4c30-9b69-0f06541246b2",
-      "to": "ce00ffd7-211a-4c30-9b69-0f06541246b2",
+      "id": "3851c9d7-4d96-4e60-bce3-303e61453e07",
+      "from": "05a5b4f0-2766-4b67-bb64-f8a41af6c397",
+      "to": "f5529c28-03d6-4a73-afa4-0af51255a30b",
       "symbol": "a",
       "isEpsilon": false
     },
     {
-      "id": "f801d8df-aa0e-45b2-b00a-bbbb3e6317b8",
-      "from": "ce00ffd7-211a-4c30-9b69-0f06541246b2",
-      "to": "324f01e3-0a81-4bbe-8cef-3bb9ecb5d14a",
-      "symbol": "b",
-      "isEpsilon": false
-    },
-    {
-      "id": "06bb71f7-c23e-47b9-a9f7-0f64e8153380",
-      "from": "118c042a-f246-4798-8724-a2c058c37149",
-      "to": "122e5e77-311d-4437-8f09-41f602788068",
-      "symbol": "a",
-      "isEpsilon": false
-    },
-    {
-      "id": "77b2d3dd-70d7-4bbb-8038-0b38dfb1c7d1",
-      "from": "118c042a-f246-4798-8724-a2c058c37149",
-      "to": "4402f95e-2250-4447-93ed-647a208938e4",
+      "id": "cffc7583-c3d3-4971-8ec8-ed974ec441d7",
+      "from": "05a5b4f0-2766-4b67-bb64-f8a41af6c397",
+      "to": "fad2f2cb-bd60-466d-b7df-bb721bddaff4",
       "symbol": "b",
       "isEpsilon": false
     }
@@ -135,15 +105,12 @@
     "M0",
     "M1",
     "M2",
-    "M3",
-    "M4",
-    "M5"
+    "M3"
   ],
-  "inicial": "M5",
+  "inicial": "M2",
   "finales": [
     "M0",
-    "M1",
-    "M2"
+    "M1"
   ],
   "transiciones": [
     {
@@ -154,45 +121,35 @@
     {
       "origen": "M0",
       "simbolo": "b",
-      "destino": "M3"
+      "destino": "M0"
     },
     {
-      "origen": "M2",
-      "simbolo": "a",
-      "destino": "M4"
-    },
-    {
-      "origen": "M2",
-      "simbolo": "b",
-      "destino": "M1"
-    },
-    {
-      "origen": "M3",
-      "simbolo": "a",
-      "destino": "M1"
-    },
-    {
-      "origen": "M3",
-      "simbolo": "b",
-      "destino": "M3"
-    },
-    {
-      "origen": "M4",
-      "simbolo": "a",
-      "destino": "M4"
-    },
-    {
-      "origen": "M4",
-      "simbolo": "b",
-      "destino": "M1"
-    },
-    {
-      "origen": "M5",
+      "origen": "M1",
       "simbolo": "a",
       "destino": "M2"
     },
     {
-      "origen": "M5",
+      "origen": "M1",
+      "simbolo": "b",
+      "destino": "M3"
+    },
+    {
+      "origen": "M2",
+      "simbolo": "a",
+      "destino": "M2"
+    },
+    {
+      "origen": "M2",
+      "simbolo": "b",
+      "destino": "M3"
+    },
+    {
+      "origen": "M3",
+      "simbolo": "a",
+      "destino": "M1"
+    },
+    {
+      "origen": "M3",
       "simbolo": "b",
       "destino": "M0"
     }
