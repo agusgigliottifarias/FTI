@@ -68,6 +68,10 @@ Trabajo_Practico_Integrador_I_FTI/
 - **`main.py`:** Es el punto de entrada del programa. Se encarga de ejecutar el flujo completo: lee el archivo de entrada, llama al conversor, luego al minimizador, muestra los resultados por pantalla y realiza la prueba de equivalencia con cadenas de prueba.
 ---
 
+
+Hastas aca esta bien el resto no lo revise
+
+
 ### 2.2 Algoritmo 1: Conversión AFND → AFD (Construcción de Subconjuntos)
 
 #### Explicación:
