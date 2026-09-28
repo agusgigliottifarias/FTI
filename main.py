@@ -1,5 +1,6 @@
 import sys
 import os
+from itertools import product
 from modelo import Automata
 from conversor import afnd_a_afd
 from minimizador import minimizar_afd
@@ -41,7 +42,12 @@ if __name__ == "__main__":
     print(f"• Estados AFD Intermedio: {len(dfa.estados)}")
     print(f"• Estados AFD Mínimo    : {len(min_dfa.estados)}")
 
-    pruebas = ["ab", "aab", "bba", "aaab", "b", ""]
+    # Generación dinámica de cadenas de prueba a partir del alfabeto real del autómata (longitudes 0 a 3)
+    alfabeto_real = sorted([s for s in nfa.alfabeto if s != '#'])
+    pruebas = [""]
+    for l in range(1, 4):
+        for p in product(alfabeto_real, repeat=l):
+            pruebas.append("".join(p))
     print("\n" + "=" * 60)
     print(" VALIDACIÓN DE CADENAS Y DEMOSTRACIÓN DE EQUIVALENCIA ")
     print("=" * 60)
